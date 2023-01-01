@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PlacesViewController.swift
 //  GetPlaces
 //
 //  Created by Bola Fayez on 01/01/2023.
@@ -7,11 +7,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PlacesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        view.backgroundColor = .white
     }
 
 

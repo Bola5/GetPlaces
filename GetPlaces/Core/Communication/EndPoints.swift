@@ -9,23 +9,20 @@ import Foundation
 
 enum EndPoints {
     
-    case fetchDogBreedsList
-    case fetchDogBreedImages(breedName: String)
+    case fetchPlaces(lat: String, lon: String)
 
-    private var baseURLString: String { "https://dog.ceo/api/" }
+    private var baseURLString: String { Strings.BASE_URL }
 
     private var url: URL? {
         switch self {
-        case .fetchDogBreedsList:
-            return URL(string: baseURLString + "breeds/list/all")
-        case .fetchDogBreedImages(let breedName):
-            return URL(string: "\(baseURLString)breed/\(breedName)/images")
+        case .fetchPlaces(let lat, let lon):
+            return URL(string: "\(baseURLString)reverseGeocode/crossStreet/\(lat),\(lon).json?limit=5&spatialKeys=true&radius=10000&allowFreeformNewLine=true&view=Unified&key=\(Strings.API_KEY)")
         }
     }
 
     private var parameters: [URLQueryItem] {
         switch self {
-        case .fetchDogBreedsList, .fetchDogBreedImages: return []
+        case .fetchPlaces: return []
         }
     }
 

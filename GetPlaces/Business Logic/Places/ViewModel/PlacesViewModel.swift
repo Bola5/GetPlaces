@@ -9,6 +9,9 @@ import Foundation
 
 protocol PlacesViewModelProtocol {
     
+    //MARK: - Protocol - Data Source
+    var places: [PlacesLayoutViewModel.PlacesInfoLayoutViewModel]? { get }
+    
     // MARK: - Protocol - fetch
     func fetchPlaces(lat: String, lon: String, completion: @escaping PlacesViewModel.GetPlacesCompletionBlock)
 }
@@ -31,6 +34,15 @@ class PlacesViewModel: PlacesViewModelProtocol {
     
 }
 
+// MARK: - Protocol - Data Source method
+extension PlacesViewModel {
+    
+    var places: [PlacesLayoutViewModel.PlacesInfoLayoutViewModel]? {
+        return layoutViewModel?.getPlacesInfo()
+    }
+    
+}
+
 // MARK: - Protocol - fetch
 extension PlacesViewModel {
     
@@ -38,9 +50,7 @@ extension PlacesViewModel {
         placesRemoteDataSource.fetchPlaces(lat: lat, lon: lon, completion: { [weak self] (result: Result<PlacesModel, ErrorManager>) in
             switch result {
             case .success(let placesModel):
-                print(placesModel)
                 self?.layoutViewModel = PlacesLayoutViewModel(addresses: placesModel)
-                print(self?.layoutViewModel)
                 completion(.success(true))
             case .failure(let error):
                 completion(.failure(.parser(string: error.localizedDescription)))

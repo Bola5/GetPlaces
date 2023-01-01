@@ -19,9 +19,11 @@ struct PlacesLayoutViewModel {
     struct AddressesLayoutViewModel {
         
         let address: AddressLayoutViewModel
+        let position: String
         
         init(address: PlacesModel.Addresses) {
             self.address = AddressLayoutViewModel(address: address.address)
+            self.position = address.position
         }
         
         // Address
@@ -36,6 +38,30 @@ struct PlacesLayoutViewModel {
             }
         }
         
+    }
+        
+    struct PlacesInfoLayoutViewModel {
+        let name: String
+        let streetName: String
+        let lat: String
+        let lon: String
+    }
+    
+}
+
+// MARK: - Get places info
+extension PlacesLayoutViewModel {
+    
+    func getPlacesInfo() -> [PlacesInfoLayoutViewModel] {
+        var placesInfo = [PlacesInfoLayoutViewModel]()
+        for place in self.addresses {
+            let postion = place.position.components(separatedBy: [","])
+            placesInfo.append(PlacesInfoLayoutViewModel(name: place.address.municipalitySubdivision,
+                                                        streetName: place.address.streetName,
+                                                        lat: postion[0],
+                                                        lon: postion[1]))
+        }
+        return placesInfo
     }
     
 }

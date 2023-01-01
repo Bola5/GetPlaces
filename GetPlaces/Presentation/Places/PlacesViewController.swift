@@ -7,9 +7,13 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 class PlacesViewController: UIViewController {
 
+    // MARK: - UI
+    private let mapView = MKMapView()
+    
     // MARK: - ViewModel
     private let viewModel: PlacesViewModelProtocol
     
@@ -40,11 +44,26 @@ class PlacesViewController: UIViewController {
     private func setupViews() {
         
         view.backgroundColor = .white
+        title = Strings.TITLE
+        
+        // mapView
+        view.addSubview(mapView)
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
+            mapView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            mapView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+        mapView.mapType = MKMapType.standard
+        mapView.isZoomEnabled = true
+        mapView.isScrollEnabled = true
+        mapView.center = view.center
     }
 
 }
 
-// MARK: - Get city from current location
+// MARK: - Current location and mapView
 extension PlacesViewController: CLLocationManagerDelegate {
     
     // MARK: - getCurrentLocation
@@ -67,7 +86,32 @@ extension PlacesViewController: CLLocationManagerDelegate {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         print(locValue.latitude)
         print(locValue.longitude)
-        self.fetchPlaces(lat: locValue.latitude.description, lon: locValue.longitude.description)
+        
+//        let location = CLLocationCoordinate2D(latitude: Double(locValue.latitude),
+//                                              longitude: Double(locValue.latitude))
+//
+//        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+//        let region = MKCoordinateRegion(center: location, span: span)
+//        mapView.setRegion(region, animated: true)
+        
+        fetchPlaces(lat: "30.0444", lon: "31.2357")
+    }
+    
+    // MARK: - setupPlaceOnMap
+    private func setupPlaceOnMap(place: PlacesLayoutViewModel.PlacesInfoLayoutViewModel) {
+        
+        let location = CLLocationCoordinate2D(latitude: Double(place.lat) ?? 0,
+                                              longitude: Double(place.lat) ?? 0)
+        
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: location, span: span)
+        mapView.setRegion(region, animated: true)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = location
+        annotation.title = place.name
+        annotation.subtitle = place.streetName
+        mapView.addAnnotation(annotation)
     }
     
 }
@@ -90,7 +134,10 @@ extension PlacesViewController {
     
     private func handleFetchSuccess() {
         DispatchQueue.main.async { [weak self] in
-            
+            guard let places = self?.viewModel.places else { return }
+            for place in places {
+                self?.setupPlaceOnMap(place: place)
+            }
         }
     }
     

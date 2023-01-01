@@ -86,32 +86,29 @@ extension PlacesViewController: CLLocationManagerDelegate {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         print(locValue.latitude)
         print(locValue.longitude)
-        
-//        let location = CLLocationCoordinate2D(latitude: Double(locValue.latitude),
-//                                              longitude: Double(locValue.latitude))
-//
-//        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-//        let region = MKCoordinateRegion(center: location, span: span)
-//        mapView.setRegion(region, animated: true)
-        
-        fetchPlaces(lat: "30.0444", lon: "31.2357")
+        fetchPlaces(lat: locValue.latitude.description, lon: locValue.longitude.description)
     }
     
     // MARK: - setupPlaceOnMap
-    private func setupPlaceOnMap(place: PlacesLayoutViewModel.PlacesInfoLayoutViewModel) {
+    private func setupPlaceOnMap(places: [PlacesLayoutViewModel.PlacesInfoLayoutViewModel]) {
         
-        let location = CLLocationCoordinate2D(latitude: Double(place.lat) ?? 0,
-                                              longitude: Double(place.lat) ?? 0)
+        var annotations = [MKAnnotation]()
+
+        for place in places {
+            let annotation = MKPointAnnotation()
+            annotation.title = place.name
+            annotation.subtitle = place.streetName
+            annotation.coordinate = CLLocationCoordinate2D(latitude: Double(place.lat) ?? 0, longitude: Double(place.lon) ?? 0)
+            annotations.append(annotation)
+        }
+
+        mapView.addAnnotations(annotations)
+
+        if let lastAnnotation = annotations.last {
+            let region = MKCoordinateRegion(center: lastAnnotation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
+            mapView.setRegion(region, animated: true)
+        }
         
-        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-        let region = MKCoordinateRegion(center: location, span: span)
-        mapView.setRegion(region, animated: true)
-        
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = location
-        annotation.title = place.name
-        annotation.subtitle = place.streetName
-        mapView.addAnnotation(annotation)
     }
     
 }
@@ -135,9 +132,7 @@ extension PlacesViewController {
     private func handleFetchSuccess() {
         DispatchQueue.main.async { [weak self] in
             guard let places = self?.viewModel.places else { return }
-            for place in places {
-                self?.setupPlaceOnMap(place: place)
-            }
+            self?.setupPlaceOnMap(places: places)
         }
     }
     

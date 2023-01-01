@@ -30,10 +30,10 @@ struct PlacesLayoutViewModel {
         struct AddressLayoutViewModel {
             
             let streetName: String
-            let municipalitySubdivision: String
+            let crossStreet: String
             
             init(address: PlacesModel.Addresses.Address) {
-                self.municipalitySubdivision = address.municipalitySubdivision
+                self.crossStreet = address.crossStreet
                 self.streetName = address.streetName
             }
         }
@@ -56,7 +56,7 @@ extension PlacesLayoutViewModel {
         var placesInfo = [PlacesInfoLayoutViewModel]()
         for place in self.addresses {
             let postion = place.position.components(separatedBy: [","])
-            placesInfo.append(PlacesInfoLayoutViewModel(name: place.address.municipalitySubdivision,
+            placesInfo.append(PlacesInfoLayoutViewModel(name: place.address.crossStreet,
                                                         streetName: place.address.streetName,
                                                         lat: postion[0],
                                                         lon: postion[1]))

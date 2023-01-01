@@ -20,6 +20,8 @@
 		8370D36F2961B241002F5710 /* CommunicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370D3652961B240002F5710 /* CommunicationManager.swift */; };
 		8370D3702961B241002F5710 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370D3662961B240002F5710 /* ErrorHandling.swift */; };
 		8370D3712961B241002F5710 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370D3672961B240002F5710 /* ErrorManager.swift */; };
+		8370D37A2961B3C6002F5710 /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370D3792961B3C6002F5710 /* PlacesModel.swift */; };
+		8370D37D2961B8C5002F5710 /* PlacesRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370D37C2961B8C5002F5710 /* PlacesRemoteDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		8370D3652961B240002F5710 /* CommunicationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunicationManager.swift; sourceTree = "<group>"; };
 		8370D3662961B240002F5710 /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		8370D3672961B240002F5710 /* ErrorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
+		8370D3792961B3C6002F5710 /* PlacesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesModel.swift; sourceTree = "<group>"; };
+		8370D37C2961B8C5002F5710 /* PlacesRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesRemoteDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,10 +76,11 @@
 			children = (
 				8370D3482961AEA7002F5710 /* AppDelegate.swift */,
 				8370D34A2961AEA7002F5710 /* SceneDelegate.swift */,
-				8370D34C2961AEA7002F5710 /* PlacesViewController.swift */,
 				8370D3512961AEA9002F5710 /* Assets.xcassets */,
 				8370D3532961AEA9002F5710 /* LaunchScreen.storyboard */,
 				8370D3562961AEA9002F5710 /* Info.plist */,
+				8370D3742961B342002F5710 /* Presentation */,
+				8370D3762961B368002F5710 /* Business Logic */,
 				8370D35C2961B240002F5710 /* Core */,
 			);
 			path = GetPlaces;
@@ -110,6 +115,55 @@
 				8370D3672961B240002F5710 /* ErrorManager.swift */,
 			);
 			path = Communication;
+			sourceTree = "<group>";
+		};
+		8370D3742961B342002F5710 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				8370D3752961B350002F5710 /* Places */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		8370D3752961B350002F5710 /* Places */ = {
+			isa = PBXGroup;
+			children = (
+				8370D34C2961AEA7002F5710 /* PlacesViewController.swift */,
+			);
+			path = Places;
+			sourceTree = "<group>";
+		};
+		8370D3762961B368002F5710 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				8370D3772961B36F002F5710 /* Places */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		8370D3772961B36F002F5710 /* Places */ = {
+			isa = PBXGroup;
+			children = (
+				8370D37B2961B8A5002F5710 /* DataSource */,
+				8370D3782961B379002F5710 /* Model */,
+			);
+			path = Places;
+			sourceTree = "<group>";
+		};
+		8370D3782961B379002F5710 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8370D3792961B3C6002F5710 /* PlacesModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8370D37B2961B8A5002F5710 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				8370D37C2961B8C5002F5710 /* PlacesRemoteDataSource.swift */,
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,8 +239,10 @@
 				8370D36F2961B241002F5710 /* CommunicationManager.swift in Sources */,
 				8370D36A2961B241002F5710 /* Constants.swift in Sources */,
 				8370D36E2961B241002F5710 /* EndPoints.swift in Sources */,
+				8370D37D2961B8C5002F5710 /* PlacesRemoteDataSource.swift in Sources */,
 				8370D3692961B240002F5710 /* LoadingManager.swift in Sources */,
 				8370D34D2961AEA7002F5710 /* PlacesViewController.swift in Sources */,
+				8370D37A2961B3C6002F5710 /* PlacesModel.swift in Sources */,
 				8370D3492961AEA7002F5710 /* AppDelegate.swift in Sources */,
 				8370D3712961B241002F5710 /* ErrorManager.swift in Sources */,
 				8370D3702961B241002F5710 /* ErrorHandling.swift in Sources */,

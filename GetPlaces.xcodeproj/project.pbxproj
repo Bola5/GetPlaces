@@ -22,6 +22,8 @@
 		8370D3712961B241002F5710 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370D3672961B240002F5710 /* ErrorManager.swift */; };
 		8370D37A2961B3C6002F5710 /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370D3792961B3C6002F5710 /* PlacesModel.swift */; };
 		8370D37D2961B8C5002F5710 /* PlacesRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370D37C2961B8C5002F5710 /* PlacesRemoteDataSource.swift */; };
+		8370D3802961BDBD002F5710 /* PlacesLayoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370D37F2961BDBD002F5710 /* PlacesLayoutViewModel.swift */; };
+		8370D3822961C031002F5710 /* PlacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370D3812961C031002F5710 /* PlacesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		8370D3672961B240002F5710 /* ErrorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
 		8370D3792961B3C6002F5710 /* PlacesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesModel.swift; sourceTree = "<group>"; };
 		8370D37C2961B8C5002F5710 /* PlacesRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesRemoteDataSource.swift; sourceTree = "<group>"; };
+		8370D37F2961BDBD002F5710 /* PlacesLayoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesLayoutViewModel.swift; sourceTree = "<group>"; };
+		8370D3812961C031002F5710 /* PlacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,7 @@
 		8370D3772961B36F002F5710 /* Places */ = {
 			isa = PBXGroup;
 			children = (
+				8370D37E2961BDA1002F5710 /* ViewModel */,
 				8370D37B2961B8A5002F5710 /* DataSource */,
 				8370D3782961B379002F5710 /* Model */,
 			);
@@ -164,6 +169,15 @@
 				8370D37C2961B8C5002F5710 /* PlacesRemoteDataSource.swift */,
 			);
 			path = DataSource;
+			sourceTree = "<group>";
+		};
+		8370D37E2961BDA1002F5710 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8370D37F2961BDBD002F5710 /* PlacesLayoutViewModel.swift */,
+				8370D3812961C031002F5710 /* PlacesViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8370D3822961C031002F5710 /* PlacesViewModel.swift in Sources */,
 				8370D36F2961B241002F5710 /* CommunicationManager.swift in Sources */,
 				8370D36A2961B241002F5710 /* Constants.swift in Sources */,
 				8370D36E2961B241002F5710 /* EndPoints.swift in Sources */,
@@ -246,6 +261,7 @@
 				8370D3492961AEA7002F5710 /* AppDelegate.swift in Sources */,
 				8370D3712961B241002F5710 /* ErrorManager.swift in Sources */,
 				8370D3702961B241002F5710 /* ErrorHandling.swift in Sources */,
+				8370D3802961BDBD002F5710 /* PlacesLayoutViewModel.swift in Sources */,
 				8370D36D2961B241002F5710 /* CodableManager.swift in Sources */,
 				8370D34B2961AEA7002F5710 /* SceneDelegate.swift in Sources */,
 				8370D36C2961B241002F5710 /* Extensions.swift in Sources */,

@@ -31,14 +31,7 @@ enum EndPoints {
             preconditionFailure("Missing URL for route: \(self)")
         }
 
-        var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
-        components?.queryItems = parameters
-
-        guard let parametrizedURL = components?.url else {
-            preconditionFailure("Missing URL with parameters for url: \(url)")
-        }
-
-        return parametrizedURL.absoluteString
+        return url.description
     }
     
 }

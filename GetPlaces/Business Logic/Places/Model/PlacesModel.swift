@@ -10,7 +10,6 @@ import Foundation
 struct PlacesModel: Codable {
     
     let addresses: [Addresses]
-    let spatialKeys: [String]
     let summary: Summary
 
     struct Addresses: Codable {

@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol PlacesRemoteDataSourceSourceProtocol {
+protocol PlacesRemoteDataSourceProtocol {
     func fetchPlaces(lat: String, lon: String, completion: @escaping (Result<PlacesModel, ErrorManager>) -> Void)
 }
 
-class PlacesRemoteDataSource: PlacesRemoteDataSourceSourceProtocol {
+class PlacesRemoteDataSource: PlacesRemoteDataSourceProtocol {
     
     private let communicationManagerProtocol: CommunicationManagerProtocol
     

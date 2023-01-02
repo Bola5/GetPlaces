@@ -13,7 +13,8 @@ class PlacesViewController: UIViewController {
 
     // MARK: - UI
     private let mapView = MKMapView()
-    
+    private let searchBar: UISearchBar = UISearchBar(frame: CGRect.zero)
+
     // MARK: - ViewModel
     private let viewModel: PlacesViewModelProtocol
     
@@ -46,11 +47,26 @@ class PlacesViewController: UIViewController {
         view.backgroundColor = .white
         title = Strings.TITLE
         
+        // searchBar
+        view.addSubview(searchBar)
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            searchBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            searchBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+        ])
+        searchBar.searchBarStyle = .default
+        searchBar.placeholder = Strings.SEARCH_PLACEHOLDER
+        searchBar.sizeToFit()
+        searchBar.backgroundColor = .white
+        searchBar.backgroundImage = UIImage()
+        searchBar.delegate = self
+        
         // mapView
         view.addSubview(mapView)
         mapView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
+            mapView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
@@ -113,6 +129,18 @@ extension PlacesViewController: CLLocationManagerDelegate {
     
 }
 
+// MARK: - Search for a city
+extension PlacesViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let city = searchBar.text else { return }
+        fetchPositionByCity(city: city)
+        self.searchBar.text = ""
+        self.searchBar.endEditing(true)
+    }
+    
+}
+
 // MARK: - Fetch Places
 extension PlacesViewController {
     
@@ -137,6 +165,35 @@ extension PlacesViewController {
     }
     
     private func handleFailure(error: String) {
+        DispatchQueue.main.async { [weak self] in
+            self?.showErrorAlert(message: error)
+        }
+    }
+    
+}
+
+// MARK: - Fetch Position
+extension PlacesViewController {
+    
+    private func fetchPositionByCity(city: String) {
+        LoadingManager.sharedInstance.showIndicator()
+        viewModel.fetchPosition(city: city, completion: { [weak self] result in
+            LoadingManager.sharedInstance.hideIndicator()
+            switch result {
+            case .success:
+                self?.handleFetchSuccessPositionByCity()
+            case .failure(let error):
+                self?.handleFailure(error: error.getStringError() ?? "")
+            }
+        })
+    }
+    
+    private func handleFetchSuccessPositionByCity() {
+        guard let position = self.viewModel.position else { return }
+        self.fetchPlaces(lat: String(position.lat), lon: String(position.lon))
+    }
+    
+    private func handleFailurePositionByCity(error: String) {
         DispatchQueue.main.async { [weak self] in
             self?.showErrorAlert(message: error)
         }

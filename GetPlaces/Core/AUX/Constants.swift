@@ -13,5 +13,6 @@ enum Strings {
     static let API_KEY = "2GZZfB346o7h0AcR8GNoQ7GnL8QK9TXt"
     
     static let TITLE = "Places"
+    static let SEARCH_PLACEHOLDER = "Search for a city"
     
 }

@@ -10,6 +10,7 @@ import Foundation
 
 protocol PlacesRemoteDataSourceProtocol {
     func fetchPlaces(lat: String, lon: String, completion: @escaping (Result<PlacesModel, ErrorManager>) -> Void)
+    func fetchPositionByCity(city: String, completion: @escaping (Result<PositionModel, ErrorManager>) -> Void)
 }
 
 class PlacesRemoteDataSource: PlacesRemoteDataSourceProtocol {
@@ -30,5 +31,17 @@ class PlacesRemoteDataSource: PlacesRemoteDataSourceProtocol {
             }
         })
     }
+    
+    func fetchPositionByCity(city: String, completion: @escaping (Result<PositionModel, ErrorManager>) -> Void) {
+        communicationManagerProtocol.request(urlString: EndPoints.fetchPositionByCity(city: city).asRequest(), completion: { (result : Result<PositionModel, ErrorManager>) in
+            switch result {
+                case .success(let model):
+                completion(.success(model))
+                case .failure(let error):
+                completion(.failure(error))
+            }
+        })
+    }
+
 
 }

@@ -1,4 +1,4 @@
-# GetPlaces
+# Get Places
 
 ## Onboarding
 ## Requirements

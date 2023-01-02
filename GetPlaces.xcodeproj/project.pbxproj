@@ -26,7 +26,20 @@
 		8370D3822961C031002F5710 /* PlacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370D3812961C031002F5710 /* PlacesViewModel.swift */; };
 		8370D38429630683002F5710 /* PositionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370D38329630683002F5710 /* PositionModel.swift */; };
 		8370D38629630747002F5710 /* PositionsLayoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370D38529630747002F5710 /* PositionsLayoutViewModel.swift */; };
+		8370D38E296311DB002F5710 /* GetPlacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370D38D296311DB002F5710 /* GetPlacesTests.swift */; };
+		8370D39629633E20002F5710 /* places.json in Resources */ = {isa = PBXBuildFile; fileRef = 8370D39529633E20002F5710 /* places.json */; };
+		8370D39829633EBB002F5710 /* GetPlacesAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370D39729633EBB002F5710 /* GetPlacesAPITests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8370D38F296311DB002F5710 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8370D33D2961AEA7002F5710 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8370D3442961AEA7002F5710;
+			remoteInfo = GetPlaces;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8370D3452961AEA7002F5710 /* GetPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,10 +63,21 @@
 		8370D3812961C031002F5710 /* PlacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewModel.swift; sourceTree = "<group>"; };
 		8370D38329630683002F5710 /* PositionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionModel.swift; sourceTree = "<group>"; };
 		8370D38529630747002F5710 /* PositionsLayoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionsLayoutViewModel.swift; sourceTree = "<group>"; };
+		8370D38B296311DB002F5710 /* GetPlacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetPlacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8370D38D296311DB002F5710 /* GetPlacesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlacesTests.swift; sourceTree = "<group>"; };
+		8370D39529633E20002F5710 /* places.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = places.json; sourceTree = "<group>"; };
+		8370D39729633EBB002F5710 /* GetPlacesAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlacesAPITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8370D3422961AEA7002F5710 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8370D388296311DB002F5710 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -67,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				8370D3472961AEA7002F5710 /* GetPlaces */,
+				8370D38C296311DB002F5710 /* GetPlacesTests */,
 				8370D3462961AEA7002F5710 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				8370D3452961AEA7002F5710 /* GetPlaces.app */,
+				8370D38B296311DB002F5710 /* GetPlacesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,6 +212,24 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		8370D38C296311DB002F5710 /* GetPlacesTests */ = {
+			isa = PBXGroup;
+			children = (
+				8370D39429633DBF002F5710 /* Mock */,
+				8370D38D296311DB002F5710 /* GetPlacesTests.swift */,
+				8370D39729633EBB002F5710 /* GetPlacesAPITests.swift */,
+			);
+			path = GetPlacesTests;
+			sourceTree = "<group>";
+		};
+		8370D39429633DBF002F5710 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				8370D39529633E20002F5710 /* places.json */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -206,6 +250,24 @@
 			productReference = 8370D3452961AEA7002F5710 /* GetPlaces.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8370D38A296311DB002F5710 /* GetPlacesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8370D391296311DB002F5710 /* Build configuration list for PBXNativeTarget "GetPlacesTests" */;
+			buildPhases = (
+				8370D387296311DB002F5710 /* Sources */,
+				8370D388296311DB002F5710 /* Frameworks */,
+				8370D389296311DB002F5710 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8370D390296311DB002F5710 /* PBXTargetDependency */,
+			);
+			name = GetPlacesTests;
+			productName = GetPlacesTests;
+			productReference = 8370D38B296311DB002F5710 /* GetPlacesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -218,6 +280,10 @@
 				TargetAttributes = {
 					8370D3442961AEA7002F5710 = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					8370D38A296311DB002F5710 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 8370D3442961AEA7002F5710;
 					};
 				};
 			};
@@ -235,6 +301,7 @@
 			projectRoot = "";
 			targets = (
 				8370D3442961AEA7002F5710 /* GetPlaces */,
+				8370D38A296311DB002F5710 /* GetPlacesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -246,6 +313,14 @@
 			files = (
 				8370D3552961AEA9002F5710 /* LaunchScreen.storyboard in Resources */,
 				8370D3522961AEA9002F5710 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8370D389296311DB002F5710 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8370D39629633E20002F5710 /* places.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +351,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8370D387296311DB002F5710 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8370D38E296311DB002F5710 /* GetPlacesTests.swift in Sources */,
+				8370D39829633EBB002F5710 /* GetPlacesAPITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8370D390296311DB002F5710 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8370D3442961AEA7002F5710 /* GetPlaces */;
+			targetProxy = 8370D38F296311DB002F5710 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8370D3532961AEA9002F5710 /* LaunchScreen.storyboard */ = {
@@ -456,6 +548,40 @@
 			};
 			name = Release;
 		};
+		8370D392296311DB002F5710 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bola.GetPlacesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GetPlaces.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GetPlaces";
+			};
+			name = Debug;
+		};
+		8370D393296311DB002F5710 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bola.GetPlacesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GetPlaces.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GetPlaces";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -473,6 +599,15 @@
 			buildConfigurations = (
 				8370D35A2961AEA9002F5710 /* Debug */,
 				8370D35B2961AEA9002F5710 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8370D391296311DB002F5710 /* Build configuration list for PBXNativeTarget "GetPlacesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8370D392296311DB002F5710 /* Debug */,
+				8370D393296311DB002F5710 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

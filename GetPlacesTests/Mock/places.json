@@ -1,0 +1,104 @@
+{
+    "summary": {
+        "numResults": 5,
+        "queryTime": 125
+    },
+    "addresses": [
+        {
+            "address": {
+                "streetName": "Powell Street & Geary Street",
+                "crossStreet": "Geary Street",
+                "municipalitySubdivision": "Downtown San Francisco",
+                "municipality": "San Francisco",
+                "countrySecondarySubdivision": "San Francisco",
+                "countrySubdivision": "CA",
+                "countrySubdivisionName": "California",
+                "postalCode": "94102",
+                "countryCode": "US",
+                "country": "United States",
+                "countryCodeISO3": "USA",
+                "freeformAddress": "Powell Street & Geary Street, San Francisco, CA 94102",
+                "localName": "San Francisco",
+                "street": "Powell Street"
+            },
+            "position": "37.78737,-122.40825"
+        },
+        {
+            "address": {
+                "streetName": "O'Farrell Street & Powell Street",
+                "crossStreet": "O'Farrell Street",
+                "municipalitySubdivision": "Downtown San Francisco",
+                "municipality": "San Francisco",
+                "countrySecondarySubdivision": "San Francisco",
+                "countrySubdivision": "CA",
+                "countrySubdivisionName": "California",
+                "postalCode": "94102",
+                "countryCode": "US",
+                "country": "United States",
+                "countryCodeISO3": "USA",
+                "freeformAddress": "O'Farrell Street & Powell Street, San Francisco, CA 94102",
+                "localName": "San Francisco",
+                "street": "Powell Street"
+            },
+            "position": "37.78644,-122.40805"
+        },
+        {
+            "address": {
+                "streetName": "Post Street & Powell Street",
+                "crossStreet": "Post Street",
+                "municipalitySubdivision": "Downtown San Francisco",
+                "municipality": "San Francisco",
+                "countrySecondarySubdivision": "San Francisco",
+                "countrySubdivision": "CA",
+                "countrySubdivisionName": "California",
+                "postalCode": "94102",
+                "countryCode": "US",
+                "country": "United States",
+                "countryCodeISO3": "USA",
+                "freeformAddress": "Post Street & Powell Street, San Francisco, CA 94102",
+                "localName": "San Francisco",
+                "street": "Powell Street"
+            },
+            "position": "37.7883,-122.40843"
+        },
+        {
+            "address": {
+                "streetName": "Ellis Street & Powell Street",
+                "crossStreet": "Ellis Street",
+                "municipalitySubdivision": "Downtown San Francisco",
+                "municipality": "San Francisco",
+                "countrySecondarySubdivision": "San Francisco",
+                "countrySubdivision": "CA",
+                "countrySubdivisionName": "California",
+                "postalCode": "94102",
+                "countryCode": "US",
+                "country": "United States",
+                "countryCodeISO3": "USA",
+                "freeformAddress": "Ellis Street & Powell Street, San Francisco, CA 94102",
+                "localName": "San Francisco",
+                "street": "Powell Street"
+            },
+            "position": "37.7855,-122.40787"
+        },
+        {
+            "address": {
+                "streetName": "Sutter Street & Powell Street",
+                "crossStreet": "Sutter Street",
+                "municipalitySubdivision": "Downtown San Francisco",
+                "municipality": "San Francisco",
+                "countrySecondarySubdivision": "San Francisco",
+                "countrySubdivision": "CA",
+                "countrySubdivisionName": "California",
+                "postalCode": "94108",
+                "countryCode": "US",
+                "country": "United States",
+                "countryCodeISO3": "USA",
+                "freeformAddress": "Sutter Street & Powell Street, San Francisco, CA 94108",
+                "localName": "San Francisco",
+                "street": "Powell Street"
+            },
+            "position": "37.78925,-122.40857"
+        }
+    ],
+    "spatialKeys": []
+}
